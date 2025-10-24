@@ -9,6 +9,7 @@
 	Features:
 		Latches onto javaw.exe
 		-> Inject native DLL into Minecraft process (javaw.exe) using SI or CE
+		Java virtual machine attaches injection thread to game using JNI
 		Lightweight object wrapper
 		Debug console
 		Hotkey to self-destruct
