@@ -70,6 +70,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -134,24 +137,27 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <AdditionalOptions>/FORCE:MULTIPLE %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>JNI/jvm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(ProjectDir)include\JNI\jvm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Cheat.cpp" />
-    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="src\sdk\classes\classes.cpp" />
+    <ClCompile Include="src\sdk\jvm.cpp" />
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\sdk\minecraft\minecraft.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Cheat.h" />
-    <ClInclude Include="Java.h" />
-    <ClInclude Include="JNI\classfile_constants.h" />
-    <ClInclude Include="JNI\jawt.h" />
-    <ClInclude Include="JNI\jawt_md.h" />
-    <ClInclude Include="JNI\jdwpTransport.h" />
-    <ClInclude Include="JNI\jni.h" />
-    <ClInclude Include="JNI\jni_md.h" />
-    <ClInclude Include="JNI\jvmti.h" />
-    <ClInclude Include="JNI\jvmticmlr.h" />
+    <ClInclude Include="src\sdk\classes\classes.h" />
+    <ClInclude Include="src\sdk\minecraft\minecraft.h" />
+    <ClInclude Include="src\sdk\jvm.h" />
+    <ClInclude Include="include\JNI\classfile_constants.h" />
+    <ClInclude Include="include\JNI\jawt.h" />
+    <ClInclude Include="include\JNI\jawt_md.h" />
+    <ClInclude Include="include\JNI\jdwpTransport.h" />
+    <ClInclude Include="include\JNI\jni.h" />
+    <ClInclude Include="include\JNI\jni_md.h" />
+    <ClInclude Include="include\JNI\jvmti.h" />
+    <ClInclude Include="include\JNI\jvmticmlr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
