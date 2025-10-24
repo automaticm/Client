@@ -1,5 +1,7 @@
 #include "Cheat.h"
 #include "Java.h"
+
+#include <iostream>
 #include <thread>
 #include <chrono>
 
@@ -24,18 +26,20 @@ jobject getWorld() {
 
 //sprint in any direction
 void omnisprint() {
+	jmethodID setSprint = cheeto.environment->GetMethodID(cheeto.environment->GetObjectClass(getPlr()), "d", "(Z)V");
+	cheeto.environment->CallBooleanMethod(getPlr(), setSprint, true);
+}
+
+void modules() {
+	// if null then dont do notin
 	while (true) {
-		// if null then dont do notin
 		if (!!getMinecraft()) continue;
 		if (!!getPlr()) continue;
 		if (!!getWorld()) continue;
 
-
+		omnisprint();
+		std::cout << "omnisprint on";
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(5));
 	}
-}
-
-void modules() {
-
 }

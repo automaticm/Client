@@ -10,7 +10,7 @@ void initialize() {
     if (rest == JNI_EDETACHED)
         rest = cheeto.vm->AttachCurrentThread((void**)&cheeto.environment, nullptr);
 
-    if (cheeto.environment != nullptr);
+    if (cheeto.environment != nullptr)
         modules();
 }
 
@@ -22,7 +22,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-        CreateThread(0, 0, (LPTHREAD_START_ROUTINE)initialize, 0, 0, 0)
+        CreateThread(0, 0, (LPTHREAD_START_ROUTINE)initialize, 0, 0, 0);
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
     case DLL_PROCESS_DETACH:
