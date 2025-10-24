@@ -1,6 +1,5 @@
 #pragma once
 
-void modules()
-{
+void modules(){
 
 }

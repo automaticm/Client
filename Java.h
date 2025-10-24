@@ -1,8 +1,7 @@
 #pragma once
 #include "JNI/jni.h"
 
-class cheetos
-{
+class cheetos{
 public:
 	JavaVM* vm;
 	JNIEnv* environment;
