@@ -1,5 +1,5 @@
 ### Chester's Cheetos Client
-Features
+Features  
 [x] Sprint  
 [x] Omni-directional Sprint  
 [ ] Autoclicker  
