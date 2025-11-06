@@ -1,5 +1,5 @@
-### Chester's Cheetos Client
+### External Client
 	Features  
 	[ ] Autoclicker
 	[ ] Reach
-  [ ] ESP
+    [ ] ESP
