@@ -28,6 +28,25 @@ void init(HMODULE module) {
         printf("JNI hooked.\n");
     }
 
+    // Setting up Minecraft instance
+    jclass minecraftClass = env->FindClass("ave");
+    jmethodID getMinecraft = env->GetStaticMethodID(minecraftClass, "A", "()Lave;");
+    jobject minecraftInstance = env->CallStaticObjectMethod(minecraftClass, getMinecraft);
+    
+    // Player attributes
+    jfieldID plrField = env->GetFieldID(minecraftClass, "h", "Lbew;");
+    jobject plr = env->GetObjectField(minecraftInstance, plrField);
+
+    if(plr == NULL){
+        printf("Player object is null, are you loaded in a game yet?");
+    }
+
+    jclass plrClass = env->GetObjectClass(plr);
+    
+    // Calling player.jump();
+    jmethodID jumpMethod = env->GetMethodID(plrClass, "bf", "()V");
+    env->CallVoidMethod(plr, jumpMethod);
+
 
 }
 
