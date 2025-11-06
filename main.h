@@ -4,6 +4,6 @@
 
 #define long long long
 extern JavaVM* vm;
-extern JNIEnv* env = NULL;
+extern JNIEnv* env;
 
 extern void client_main(HMODULE hModule);

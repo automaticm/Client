@@ -1,12 +1,20 @@
 #include "main.h"
 #include "functions.h"
+#include "modules.h"
 
 void client_main(HMODULE hModule){
+    // Initialize modules here
+
+    Fly *fly_mod = new Fly();
+    fly_mod->toggle();
+    mods.push_back(fly_mod);
+
     while(true){
-        mc_thePlayer_jump(env);
+        //plrJump(env);
+        call_event("Client-tick", "");
         Sleep(50);
 
-        if(GetAsyncKeyState(VK_END)){
+        if(GetAsyncKeyState(VK_DELETE)){
             break;
         }
     }
